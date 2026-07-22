@@ -50,16 +50,16 @@ hermes
 ```
 
 Then prompt Monica directly:
-* *"Monica, check ~/.gbrain/tenants/ford/baseline_kpis.json and calculate our EBITDA shift."*
+* *"Monica, check ~/.gbrain/tenants/acme_corp/baseline_kpis.json and calculate our EBITDA shift."*
 * *"Monica, inspect active PRs in GitHub and log sprint status to GBrain."*
 
 #### Utility Command Helpers:
 ```bash
 # 🔍 Search GBrain Memory (Tenant Scope)
-python3 scripts/search_brain.py "payment architecture" --tenant ford
+python3 scripts/search_brain.py "payment architecture" --tenant acme_corp
 
 # 📊 Run EBITDA & Handling Time Evaluation (Multi-Objective)
-python3 scripts/run_evals.py ford
+python3 scripts/run_evals.py acme_corp
 
 # 🎯 Resolve a TDL Capability Slot
 python3 scripts/resolve_capability.py "#CAPABILITY: InfoSec-Threat"

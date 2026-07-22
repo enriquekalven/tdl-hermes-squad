@@ -65,15 +65,15 @@ npx skills add enriquekalven/tdl-hermes-squad
 ```
 
 ### 🏢 2. Multi-Tenant Workspace Setup
-Clone the repository and initialize a tenant-isolated workspace (e.g. `ford` or `intel`):
+Clone the repository and initialize a tenant-isolated workspace (e.g. `acme_corp` or `enterprise_client`):
 ```bash
 git clone https://github.com/enriquekalven/tdl-hermes-squad.git
 cd tdl-hermes-squad
 
 # Initialize tenant workspace scope
-./scripts/setup.sh ford
+./scripts/setup.sh acme_corp
 ```
-This initializes `~/.gbrain/tenants/ford/` (with entity subdirectories `people/`, `companies/`, `concepts/`, `ideas/`, `projects/`, `operations/`, `STATE.md`, and `baseline_kpis.json`).
+This initializes `~/.gbrain/tenants/acme_corp/` (with entity subdirectories `people/`, `companies/`, `concepts/`, `ideas/`, `projects/`, `operations/`, `STATE.md`, and `baseline_kpis.json`).
 
 ---
 
