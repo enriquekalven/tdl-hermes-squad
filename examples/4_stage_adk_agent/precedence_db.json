@@ -1,0 +1,11 @@
+[
+  {
+    "record_id": "PREC-1784757310",
+    "timestamp": "2026-07-22T21:55:10Z",
+    "case_id": "CAS-2026-9901",
+    "part_number": "PART-AL-PANEL-01",
+    "selected_option": "OPT-GROUND-TRUCK",
+    "analyst_rationale": "Approved expedited logistics to prevent Line A (High Margin) shutdown ($150k/hr line cost).",
+    "vector_embedding_status": "INDEXED_VERTEX_VECTOR_SEARCH"
+  }
+]
