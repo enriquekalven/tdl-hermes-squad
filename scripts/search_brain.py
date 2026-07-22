@@ -1,27 +1,39 @@
 #!/usr/bin/env python3
 """
-GBrain Knowledge Search Tool
-Scans and queries ~/.gbrain/ entity markdown files for fast context retrieval.
+GBrain Knowledge Search Tool (Multi-Tenant & Hierarchical Indexing Edition)
+Scans and queries ~/.gbrain/tenants/<tenant_id>/ entity markdown files for fast context retrieval.
 """
 
 import sys
 import os
 import glob
+import argparse
 
-GBRAIN_DIR = os.path.expanduser("~/.gbrain")
+GBRAIN_BASE = os.path.expanduser("~/.gbrain")
 
-def search_brain(query):
+def get_active_tenant():
+    active_file = os.path.join(GBRAIN_BASE, "active_tenant")
+    if os.path.exists(active_file):
+        with open(active_file, "r") as f:
+            return f.read().strip()
+    return "default"
+
+def search_brain(query, tenant_id=None):
+    if not tenant_id:
+        tenant_id = get_active_tenant()
+
+    tenant_dir = os.path.join(GBRAIN_BASE, "tenants", tenant_id)
+    if not os.path.exists(tenant_dir):
+        # Fallback to legacy root ~/.gbrain if tenant dir doesn't exist
+        tenant_dir = GBRAIN_BASE
+
     query = query.lower()
     results = []
 
-    if not os.path.exists(GBRAIN_DIR):
-        print(f"Error: {GBRAIN_DIR} directory does not exist.")
-        return
-
-    md_files = glob.glob(os.path.join(GBRAIN_DIR, "**/*.md"), recursive=True)
+    md_files = glob.glob(os.path.join(tenant_dir, "**/*.md"), recursive=True)
 
     for filepath in md_files:
-        rel_path = os.path.relpath(filepath, GBRAIN_DIR)
+        rel_path = os.path.relpath(filepath, tenant_dir)
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
             lines = f.readlines()
         
@@ -33,6 +45,7 @@ def search_brain(query):
         if matching_lines:
             results.append((rel_path, matching_lines))
 
+    print(f"🏢 Tenant Scope: [{tenant_id}] ({tenant_dir})")
     if not results:
         print(f"🔍 No matches found in GBrain for: '{query}'")
         return
@@ -45,9 +58,9 @@ def search_brain(query):
         print()
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python3 search_brain.py <search_query>")
-        sys.exit(1)
-    
-    search_query = " ".join(sys.argv[1:])
-    search_brain(search_query)
+    parser = argparse.ArgumentParser(description="GBrain Multi-Tenant Knowledge Search Tool")
+    parser.add_argument("query", type=str, help="Search query string")
+    parser.add_argument("--tenant", type=str, help="Tenant ID namespace (default: active tenant)")
+    args = parser.parse_args()
+
+    search_brain(args.query, tenant_id=args.tenant)

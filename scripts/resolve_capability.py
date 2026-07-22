@@ -2,6 +2,7 @@
 """
 Dynamic Capability Slot Resolver for TDL Meta-Skills
 Maps abstract capability slots (#CAPABILITY: Slot) to installed tool skills.
+Includes Graceful Fallback Engine if upstream skills are missing.
 """
 
 import sys
@@ -9,31 +10,52 @@ import os
 import json
 
 CAPABILITY_LOOKUP = {
-    "#CAPABILITY: Customer-Intake": "workshop-intake",
-    "#CAPABILITY: Scope-Mapping": "opportunity-solution-tree",
-    "#CAPABILITY: PRD-Creation": "create-prd",
-    "#CAPABILITY: Arch-Grilling": "grill-with-docs",
-    "#CAPABILITY: API-Design": "api-and-interface-design",
-    "#CAPABILITY: InfoSec-Threat": "threat-model-analyst",
-    "#CAPABILITY: Task-Breakdown": "planning-and-task-breakdown",
-    "#CAPABILITY: TDD": "test-driven-development",
-    "#CAPABILITY: Code-Review": "code-review-and-quality",
-    "#CAPABILITY: Intent-Audit": "intended-vs-implemented",
-    "#CAPABILITY: Agent-Evaluation": "google-agents-cli-eval",
-    "#CAPABILITY: Release-Deploy": "shipping-and-launch",
-    "#CAPABILITY: ROI-Sizing": "ai-value-sizing",
-    "#CAPABILITY: Handoff-Artifacts": "shipping-artifacts"
+    "#CAPABILITY: Customer-Intake": ("workshop-intake", "interview-me"),
+    "#CAPABILITY: Scope-Mapping": ("opportunity-solution-tree", "user-stories"),
+    "#CAPABILITY: PRD-Creation": ("create-prd", "spec-driven-development"),
+    "#CAPABILITY: Arch-Grilling": ("grill-with-docs", "google-cloud-waf-security"),
+    "#CAPABILITY: API-Design": ("api-and-interface-design", "codebase-design"),
+    "#CAPABILITY: InfoSec-Threat": ("threat-model-analyst", "agent-governance"),
+    "#CAPABILITY: Task-Breakdown": ("planning-and-task-breakdown", "to-tickets"),
+    "#CAPABILITY: TDD": ("test-driven-development", "tdd"),
+    "#CAPABILITY: Code-Review": ("code-review-and-quality", "pso-code-quality-reviewer"),
+    "#CAPABILITY: Intent-Audit": ("intended-vs-implemented", "code-review"),
+    "#CAPABILITY: Agent-Evaluation": ("google-agents-cli-eval", "eval-quality-gate"),
+    "#CAPABILITY: Release-Deploy": ("shipping-and-launch", "google-agents-cli-deploy"),
+    "#CAPABILITY: ROI-Sizing": ("ai-value-sizing", "metrics-dashboard"),
+    "#CAPABILITY: Handoff-Artifacts": ("shipping-artifacts", "google-agents-cli-publish")
 }
 
+HERMES_SKILLS = os.path.expanduser("~/.hermes/skills")
+AGENTS_SKILLS = os.path.expanduser("~/.agents/skills")
+
+def check_skill_exists(skill_name):
+    path_h = os.path.join(HERMES_SKILLS, skill_name)
+    path_a = os.path.join(AGENTS_SKILLS, skill_name)
+    return os.path.exists(path_h) or os.path.exists(path_a)
+
 def resolve_slot(slot_name):
-    resolved = CAPABILITY_LOOKUP.get(slot_name, "unknown-skill")
-    print(f"🎯 Slot: {slot_name} ➔ Resolved Skill: {resolved}")
+    skills = CAPABILITY_LOOKUP.get(slot_name, ("unknown-skill", "default-fallback"))
+    primary, fallback = skills[0], skills[1]
+
+    if check_skill_exists(primary):
+        resolved = primary
+        status = "✅ Primary Skill Installed"
+    elif check_skill_exists(fallback):
+        resolved = fallback
+        status = "⚠️ Fallback Skill Installed"
+    else:
+        resolved = primary
+        status = "ℹ️ Skill Resolution (Native Template Fallback)"
+
+    print(f"🎯 Slot: {slot_name} ➔ Resolved: {resolved} [{status}]")
     return resolved
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Installed Capability Resolution Matrix:\n")
-        print(json.dumps(CAPABILITY_LOOKUP, indent=2))
+        for slot in CAPABILITY_LOOKUP:
+            resolve_slot(slot)
         sys.exit(0)
 
     slot_query = sys.argv[1]
