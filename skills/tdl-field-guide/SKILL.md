@@ -45,11 +45,13 @@ The Technical Deployment Lead (TDL) orchestrates Tier 1 Core and Tier 2 Extended
 - **Output**: Architecture Decision Records (ADRs), `CONTEXT.md`, InfoSec threat matrix.
 
 ### Phase 3: Production Build (Weeks 6-10 | Frank, Sam, Dara & Peter)
+- `#CAPABILITY: Scaffolding` ➔ Resolves to `google-agents-cli-scaffold`
 - `#CAPABILITY: Task-Breakdown` ➔ Resolves to `planning-and-task-breakdown` & `to-tickets`
-- `#CAPABILITY: TDD` ➔ Resolves to `test-driven-development`
+- `#CAPABILITY: TDD` ➔ Resolves to `test-driven-development` (Paired with `agents-cli`)
 - `#CAPABILITY: Code-Review` ➔ Resolves to `code-review-and-quality` / `sql-queries`
 - `#CAPABILITY: Intent-Audit` ➔ Resolves to `intended-vs-implemented`
 - **Governance**:
+  - **Frank's Combined Build Loop**: Frank uses `agents-cli scaffold` for ADK project scaffolding, paired with **TDD (Red-Green-Refactor)** for deterministic tool unit testing before running `agents-cli eval`.
   - Enforce **Strict 1-In, 1-Out Scope Control**.
   - Enforce **Sam & Clara's Data Privacy Gate** (`dummy-dataset` & `ast-resilient-remediation`).
   - **Regression Loop**: If intent audit detects breaking architectural drift, set `ACTION: ROLLBACK_TO_PHASE_2` in `STATE.md`.
