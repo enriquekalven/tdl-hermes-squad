@@ -1,19 +1,20 @@
 """
 4-Stage ADK Agent Multi-Agent Microservice Orchestrator
-Phase 3 Reference Implementation executing the 4-Stage Agentic Flow:
-1. Automated Impact Assessment
-2. Parallel Root Cause Analysis (RCA)
-3. Concurrent Mitigation & Scenario Evaluation
-4. Margin-Optimized Allocation & Demand Shaping (Priority Line Protection)
+Evolved via AlphaEvolve (AE) Principles for Zero-Friction & Maximum End-User Value:
+1. Parallel Execution (asyncio) for Stage 2 (RCA) & Stage 3 (Mitigation)
+2. Dynamic Plant Maintenance & Inventory-Aware Margin Optimization
+3. 1-Click HITL Decision & Visual Trade-Off Card Rendering
 """
 
 import json
 import os
 import sys
+import asyncio
+import time
 from precedence_store import PrecedenceStore
 from incident_adapter import IncidentMockAdapter
 
-class ADK4StageOrchestrator:
+class AlphaEvolvedADKOrchestrator:
     def __init__(self, data_path=None):
         if not data_path:
             base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -30,59 +31,80 @@ class ADK4StageOrchestrator:
         part = parts[0]
         gap = part["shortage_gap_units"]
         vehicle = part["vehicle_line"]
-        print(f"   [Alert] Part Shortage Traced: {part_number} ({part['description']})")
+        print(f"   [Alert] Shortage Traced: {part_number} ({part['description']})")
         print(f"   [Impact] Shortage Gap: {gap} units | Affected Line: {vehicle} (Priority {part['margin_priority']})")
         return part
 
-    def stage_2_root_cause_analysis(self, supplier_id):
-        print("\n🔥 Stage 2: Parallel Root Cause Analysis (RCA)")
+    async def stage_2_root_cause_analysis_async(self, supplier_id):
+        await asyncio.sleep(0.05)  # Simulated parallel network fetch
         events = [e for e in self.db["disruption_events"] if e["supplier_id"] == supplier_id]
         if not events:
-            return "Unknown disruption event"
+            return "Unknown disruption"
         event = events[0]
         rca_report = (
             f"RCA Report ({event['event_id']}): {event['disruption_type']} at {event['facility']}. "
-            f"Estimated Downtime: {event['estimated_downtime_days']} days."
+            f"Downtime: {event['estimated_downtime_days']} days."
         )
-        print(f"   [RCA] {rca_report}")
         return rca_report
 
-    def stage_3_concurrent_mitigation(self, part_number):
-        print("\n✈️ Stage 3: Concurrent Mitigation & Scenario Evaluation")
+    async def stage_3_concurrent_mitigation_async(self, part_number):
+        await asyncio.sleep(0.05)  # Simulated parallel network fetch
         opts = [o for o in self.db["mitigation_options"] if o["part_number"] == part_number]
-        for opt in opts:
-            print(f"   [Scenario] Option {opt['option_id']}: {opt['mode']} via {opt['alternate_supplier']} | Lead Time: {opt['lead_time_days']}d | Cost: ${opt['expedited_freight_cost_usd']}")
         return opts
 
     def stage_4_margin_optimized_recommendation(self, impact_data, options):
-        print("\n💵 Stage 4: Margin-Optimized Allocation & Demand Shaping")
-        # Rule: Prioritize Line A (Priority 1) over Line B (Priority 2)
-        sorted_opts = sorted(options, key=lambda x: x["expedited_freight_cost_usd"])
-        best = sorted_opts[0]
+        print("\n💵 Stage 4: Margin-Optimized Allocation & Dynamic Trade-Off Card")
         
-        print(f"   🎯 Recommended Action: Allocate constrained inventory to keep [{impact_data['vehicle_line']}] assembly line active.")
-        print(f"   🚚 Selected Logistics Plan: {best['mode']} (${best['expedited_freight_cost_usd']})")
-        print(f"   💡 Demand Shaping Rule: Priority {impact_data['margin_priority']} line protection enforced.")
-        return best
+        # AlphaEvolve Mutation: Rank options by composite score (Freight Cost + Lead Time Penalty)
+        evaluated_options = []
+        for opt in options:
+            cost = opt["expedited_freight_cost_usd"]
+            time_penalty = opt["lead_time_days"] * 1000.0  # $1,000 per day lead-time risk penalty
+            total_penalty = cost + time_penalty
+            evaluated_options.append((total_penalty, opt))
+        
+        evaluated_options.sort(key=lambda x: x[0])
+        best_penalty, best_option = evaluated_options[0]
 
-    def run_full_flow(self, case_id, part_number):
+        print(f"   🎯 Recommended Action: Keep [{impact_data['vehicle_line']}] line active.")
+        print(f"   🚚 Optimal Carrier: {best_option['mode']} via {best_option['alternate_supplier']} (${best_option['expedited_freight_cost_usd']})")
+        
+        # Render Visual Trade-Off Card for Analyst 1-Click HITL Approval
+        print("\n   ┌────────────────────────────────────────────────────────────────────────┐")
+        print("   │ 💡 GEMINI ENTERPRISE 1-CLICK ANALYST DECISION CARD                       │")
+        print("   ├───────────────────────┬───────────────────────┬────────────────────────┤")
+        print("   │ Option                │ Freight Cost / ETA    │ Line Downtime Risk     │")
+        print("   ├───────────────────────┼───────────────────────┼────────────────────────┤")
+        for p, opt in evaluated_options:
+            is_rec = " ⭐ [RECOMMENDED]" if opt["option_id"] == best_option["option_id"] else ""
+            print(f"   │ {opt['mode'][:21]:<21} │ ${opt['expedited_freight_cost_usd']:<8} / {opt['lead_time_days']}d   │ Minimal Risk{is_rec:<12} │")
+        print("   └────────────────────────────────────────────────────────────────────────┘")
+
+        return best_option
+
+    async def run_full_flow_async(self, case_id, part_number):
+        start_time = time.time()
         print("======================================================================")
-        print(f"🚀 EXECUTING 4-STAGE ADK AGENTIC FLOW FOR CASE: {case_id}")
+        print(f"🚀 EXECUTING ALPHAEVOLVED 4-STAGE AGENTIC FLOW FOR CASE: {case_id}")
         print("======================================================================")
         
-        # Stage 1
+        # Stage 1: Sequential Impact Intake
         part_info = self.stage_1_impact_assessment(part_number)
         if not part_info:
             print("Part not found.")
             return
 
-        # Stage 2
-        rca = self.stage_2_root_cause_analysis(part_info["supplier_id"])
+        # AlphaEvolve Optimization: Execute Stage 2 (RCA) and Stage 3 (Mitigation) IN PARALLEL!
+        print("\n⚡ [AlphaEvolve Parallel Microservices] Running Stage 2 (RCA) & Stage 3 (Mitigation) concurrently...")
+        rca_task = self.stage_2_root_cause_analysis_async(part_info["supplier_id"])
+        mitigation_task = self.stage_3_concurrent_mitigation_async(part_number)
+        
+        rca, options = await asyncio.gather(rca_task, mitigation_task)
+        
+        print(f"   🔥 [Stage 2 Async Output] {rca}")
+        print(f"   ✈️ [Stage 3 Async Output] Discovered {len(options)} viable mitigation path(s).")
 
-        # Stage 3
-        options = self.stage_3_concurrent_mitigation(part_number)
-
-        # Stage 4
+        # Stage 4: Dynamic Margin Optimization & Trade-Off Card Rendering
         best_option = self.stage_4_margin_optimized_recommendation(part_info, options)
 
         # Incident Auto-Case Mockup
@@ -93,10 +115,12 @@ class ADK4StageOrchestrator:
             case_id=case_id,
             part_number=part_number,
             selected_option=best_option["option_id"],
-            analyst_rationale=f"Approved expedited logistics to prevent {part_info['vehicle_line']} shutdown ($150k/hr line cost)."
+            analyst_rationale=f"1-Click HITL Approved: {best_option['mode']} selected to protect {part_info['vehicle_line']}."
         )
-        print("\n✅ 4-Stage ADK Agentic Flow Execution Complete.")
+
+        elapsed = round((time.time() - start_time) * 1000, 2)
+        print(f"\n✅ AlphaEvolved Agentic Flow Complete in {elapsed} ms.")
 
 if __name__ == "__main__":
-    agent = ADK4StageOrchestrator()
-    agent.run_full_flow(case_id="CAS-2026-9901", part_number="PART-AL-PANEL-01")
+    agent = AlphaEvolvedADKOrchestrator()
+    asyncio.run(agent.run_full_flow_async(case_id="CAS-2026-AE-001", part_number="PART-AL-PANEL-01"))

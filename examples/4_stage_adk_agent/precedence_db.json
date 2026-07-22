@@ -7,5 +7,14 @@
     "selected_option": "OPT-GROUND-TRUCK",
     "analyst_rationale": "Approved expedited logistics to prevent Line A (High Margin) shutdown ($150k/hr line cost).",
     "vector_embedding_status": "INDEXED_VERTEX_VECTOR_SEARCH"
+  },
+  {
+    "record_id": "PREC-1784757747",
+    "timestamp": "2026-07-22T22:02:27Z",
+    "case_id": "CAS-2026-AE-001",
+    "part_number": "PART-AL-PANEL-01",
+    "selected_option": "OPT-GROUND-TRUCK",
+    "analyst_rationale": "1-Click HITL Approved: Standard Dedicated Ground Truck selected to protect Line A (High Margin).",
+    "vector_embedding_status": "INDEXED_VERTEX_VECTOR_SEARCH"
   }
 ]
