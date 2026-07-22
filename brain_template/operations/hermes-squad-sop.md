@@ -1,20 +1,26 @@
-# Operation: Hermes Squad SOP
+# Operation: Hermes Squad SOP (Named Character Roster)
 
-## 🛠️ Squad Roles & Responsibilities
+## 🛠️ Squad Character Roles & Responsibilities
 
-1. **Chief of Staff (Hermes Agent)**:
-   - Single front door for user interaction and orchestration.
+1. **Monica (Chief of Staff / Hermes Orchestrator)**:
+   - Front door for all user queries.
    - Queries `~/.gbrain/` before delegating tasks.
    - Synthesizes findings from specialist agents and updates `GBrain`.
 
-2. **Research Specialist**:
-   - Researches companies, tools, and technical concepts.
-   - Writes structured notes to `~/.gbrain/companies/` and `~/.gbrain/concepts/`.
+2. **Logan (10X Lead)**:
+   - Originates vertical AI narratives and qualifies EBITDA-impacting client opportunities.
 
-3. **Engineering Specialist**:
-   - Executes code changes, git commits, diff reviews, and pipeline scripts.
-   - Leverages `commit-archaeologist` and `scope-creep-detector` skills.
+3. **Ava (AI Activation Lead - AIAL)**:
+   - Manages program governance, executive sign-offs, velocity protection, and InfoSec risk reduction.
 
-4. **Content & Social Specialists**:
-   - Drafts newsletters, tracks high-signal posts, and monitors technical trends.
-   - Reads context directly from `~/.gbrain/` before drafting content.
+4. **Tyler (Technical Deployment Lead - TDL)**:
+   - Domain immersion, workflow redesign, PRD scope freezing (`create-prd`), low-fi prototyping, and eval design.
+
+5. **Frank (Forward-Deployed Engineer - FDE)**:
+   - Production code build, client VPC integrations, TDD, and 5-axis PSO code reviews (`code-review-and-quality`).
+
+6. **Peter (Platform Engineer)**:
+   - Reusable agent Golden Paths, CI/CD telemetry, and infrastructure scalability.
+
+7. **Alex (Agentic Transformation Lead - ATL)**:
+   - Organizational change management (OCM), staff training, and driving user adoption across client business units.

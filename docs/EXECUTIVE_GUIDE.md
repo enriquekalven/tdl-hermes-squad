@@ -10,25 +10,33 @@
 
 The **Hermes TDL Chief of Staff ("Monica") + GBrain Architecture** is a 3-layer agentic operating system designed to execute Google Cloud Delta's 12-week enterprise AI transformations. 
 
-By combining **Hermes Agent** (interface & orchestration), **OpenClaw / Specialist Skills** (execution squad), and **GBrain** (durable shared memory substrate), this architecture eliminates context loss, enforces 1-in-1-out scope governance, and provides metric-backed EBITDA value realization for C-suite sponsors.
+By combining **Hermes Agent** (Monica as Orchestrator), **Named Specialist Squad** (Logan, Ava, Tyler, Frank, Peter, Alex), and **GBrain** (durable shared memory substrate), this architecture eliminates context loss, enforces 1-in-1-out scope governance, and provides metric-backed EBITDA value realization for C-suite sponsors.
 
 ```
-                          ┌──────────────────────────┐
-                          │   HERMES AGENT ("Monica")│
-                          │   Chief of Staff /       │
-                          │   Orchestration          │
-                          └─────────────┬────────────┘
-                                        │
-           ┌────────────────────────────┴────────────────────────────┐
-           ▼                                                         ▼
-┌──────────────────────────┐                               ┌──────────────────────────┐
-│   GBRAIN SHARED MEMORY   │                               │    SPECIALIST SQUAD      │
-│   ~/.gbrain/             │                               │    (6-Role Matrix)       │
-│  ├── STATE.md (12-Week)  │◄──────────────────────────────┤  ├── 10X Lead            │
-│  ├── baseline_kpis.json  │     Reads & Writes Context    │  ├── AIAL & TDL          │
-│  └── entity files        │                               │  └── FDE, Platform, ATL  │
-└──────────────────────────┘                               └──────────────────────────┘
+                                  ┌─────────────────────────────────────┐
+                                  │ 1. MONICA (Hermes Chief of Staff)   │
+                                  │    Orchestration & State Machine    │
+                                  └──────────────────┬──────────────────┘
+                                                     │
+     ┌───────────────┬───────────────┬───────────────┼───────────────┬───────────────┐
+     ▼               ▼               ▼               ▼               ▼               ▼
+┌─────────┐     ┌─────────┐     ┌─────────┐     ┌─────────┐     ┌─────────┐     ┌─────────┐
+│  LOGAN  │     │   AVA   │     │  TYLER  │     │  FRANK  │     │  PETER  │     │  ALEX   │
+│10X Lead │     │  AIAL   │     │   TDL   │     │   FDE   │     │Platform │     │   ATL   │
+└─────────┘     └─────────┘     └─────────┘     └─────────┘     └─────────┘     └─────────┘
 ```
+
+---
+
+## 👥 The Named Squad Roster & Roles
+
+1. **Monica (Chief of Staff & Hermes Orchestrator)**: Single front door for user queries, squad orchestration, state machine management (`STATE.md`), and answer synthesis.
+2. **Logan (10X Lead: Originate · Innovate · Shape)**: Qualifies high-leverage business opportunities moving client EBITDA.
+3. **Ava (AI Activation Lead - AIAL: Govern · De-risk · Expand)**: Owns program governance, executive sign-offs, velocity protection, and InfoSec risk reduction.
+4. **Tyler (Technical Deployment Lead - TDL: Discover · Redesign · Prototype)**: Immerses into client domain, redesigns legacy workflows into agentic pipelines, writes PRDs, builds low-fi prototypes, and designs evaluation criteria.
+5. **Frank (Forward-Deployed Engineer - FDE: Build · Integrate · Operate)**: Anchors prototypes in client environment, hardens enterprise integrations (SSO, ETL, IAM), drives TDD, and builds automated evaluation pipelines inside client VPCs.
+6. **Peter (Platform Engineer: Productize · Accelerate · Scale)**: Builds "Golden Paths," reusable agent components, and CI/CD observability patterns.
+7. **Alex (Agentic Transformation Lead - ATL: Transform · Scale · Enable)**: Drives organizational change management (OCM) and user adoption across client business units.
 
 ---
 
@@ -68,9 +76,9 @@ You can trigger and interact with Monica directly inside your agent session usin
 * **Inspect Current Phase & Progress**:
   > *"Monica, check GBrain STATE.md and give me a status update on Phase 1."*
 * **Execute Architecture Grilling**:
-  > *"Monica, run grill-with-docs on our proposed API gateway and generate ADRs."*
+  > *"Monica, have Tyler run grill-with-docs on our proposed API gateway and generate ADRs."*
 * **Perform Intent Audit**:
-  > *"Monica, run intended-vs-implemented to check if our Phase 3 code matches PRD non-goals."*
+  > *"Monica, have Frank run intended-vs-implemented to check if our Phase 3 code matches PRD non-goals."*
 
 ---
 
@@ -134,12 +142,12 @@ python3 scripts/resolve_capability.py "#CAPABILITY: InfoSec-Threat"
 ### 🛠️ 2. TDL Leadership Perspective
 > *"Provides a standardized, state-gated operational machine for managing complex 12-week enterprise transformations."*
 - **Strengths**: Replaces unstructured prompts with a deterministic 4-phase state machine (`STATE.md`). Features dynamic capability resolution and automated regression rollbacks (`scripts/rollback.sh`).
-- **Impact**: Provides operational leverage, allowing a single TDL to oversee multiple complex client engagements predictably.
+- **Impact**: Provides operational leverage, allowing Tyler (TDL) to oversee multiple complex client engagements predictably.
 
 ### 💻 3. FDE Leadership Perspective
 > *"Accelerates engineering velocity while enforcing strict module seam isolation and test-driven quality."*
 - **Strengths**: Enforces contract-first API design (`api-and-interface-design`), TDD, and 5-axis PSO code reviews (`code-review-and-quality`). Compiles clean client handoff packets (`shipping-artifacts`).
-- **Impact**: FDEs receive clear, non-ambiguous specs, reducing PR churn and ensuring high delivery reliability inside client VPCs.
+- **Impact**: Frank (FDE) receives clear, non-ambiguous specs, reducing PR churn and ensuring high delivery reliability inside client VPCs.
 
 ### 🛡️ 4. Security & InfoSec Leadership Perspective
 > *"Proactively clears enterprise security review boards with threat modeling and strict data privacy gates."*

@@ -2,7 +2,7 @@
 
 > **The Operational Blueprint for Technical Deployment Leads (TDLs) executing the 12-Week Agentic Transformation Lifecycle on Google Cloud.**
 
-This project bridges frontier AI model capabilities into enterprise workflows using a 3-layer local multi-agent architecture powered by **Hermes Agent**, **OpenClaw / Specialist Skills**, and **GBrain Shared Persistent Memory**.
+This project bridges frontier AI model capabilities into enterprise workflows using a 3-layer local multi-agent architecture powered by **Hermes Agent**, a **Named 6-Role Squad**, and **GBrain Shared Persistent Memory**.
 
 ---
 
@@ -10,7 +10,7 @@ This project bridges frontier AI model capabilities into enterprise workflows us
 
 ```
                                   ┌───────────────────────────────────┐
-                                  │      👤 TECHNICAL DEPLOYMENT LEAD │
+                                  │ 👤 MONICA (Hermes Chief of Staff) │
                                   └─────────────────┬─────────────────┘
                                                     │
                                                     ▼
@@ -23,27 +23,28 @@ This project bridges frontier AI model capabilities into enterprise workflows us
         │ Read/Write Persistent State                                                          │ Delegates Tasks
         ▼                                                                                      ▼
 ┌───────────────────────────────────┐                                      ┌───────────────────────────────────┐
-│ 3. GBRAIN PERSISTENT MEMORY       │                                      │ 2. DELTA 6-ROLE SQUAD MATRIX      │
+│ 3. GBRAIN PERSISTENT MEMORY       │                                      │ 2. DELTA NAMED SQUAD MATRIX       │
 │    ~/.gbrain/                     │                                      ├───────────────────────────────────┤
-│   ├── STATE.md (12-Week Machine)  │◄─────────────────────────────────────┤ 🎯 10X Lead (Originate)           │
-│   ├── baseline_kpis.json          │      Enriches & Audits State         │ 🛡️ AIAL (Govern & Sign-Off)       │
-│   ├── operations/                 │                                      │ 🛠️ TDL (Discover & Prototype)    │
-│   └── companies/, projects/, etc. │                                      │ 💻 FDE (Build & Client VPC)       │
-└───────────────────────────────────┘                                      │ ⚙️ Platform Eng (Golden Paths)    │
-                                                                           │ 🚀 ATL (Org Enablement)           │
+│   ├── STATE.md (12-Week Machine)  │◄─────────────────────────────────────┤ 🎯 Logan (10X Lead: Originate)    │
+│   ├── baseline_kpis.json          │      Enriches & Audits State         │ 🛡️ Ava (AIAL: Govern & Sign-Off)  │
+│   ├── operations/                 │                                      │ 🛠️ Tyler (TDL: Discover & Proto)  │
+│   └── companies/, projects/, etc. │                                      │ 💻 Frank (FDE: Build & Client VPC)│
+└───────────────────────────────────┘                                      │ ⚙️ Peter (Platform: Golden Paths) │
+                                                                           │ 🚀 Alex (ATL: Org Enablement)     │
                                                                            └───────────────────────────────────┘
 ```
 
 ---
 
-## 🎯 The 6-Role Squad Matrix
+## 👥 The Named 6-Role Squad Roster
 
-1. **10X Lead**: Qualifies high-leverage business opportunities moving client EBITDA.
-2. **AI Activation Lead (AIAL)**: Owns program governance, executive sign-offs, and velocity protection.
-3. **Technical Deployment Lead (TDL)**: Immerses into client domain, redesigns legacy workflows into agentic pipelines, writes PRDs, builds low-fi prototypes, and designs evaluation criteria.
-4. **Forward-Deployed Engineer (FDE)**: Anchors prototypes in client environment, hardens enterprise integrations (SSO, ETL, IAM), and builds automated evaluation pipelines.
-5. **Platform Engineer**: Builds "Golden Paths," reusable agent components, and CI/CD observability patterns.
-6. **Agentic Transformation Lead (ATL)**: Drives organizational change management (OCM) and user adoption across client business units.
+1. **Monica (Chief of Staff & Hermes Orchestrator)**: Single front door for user queries, squad orchestration, state machine management (`STATE.md`), and answer synthesis.
+2. **Logan (10X Lead)**: Qualifies high-leverage business opportunities moving client EBITDA.
+3. **Ava (AI Activation Lead - AIAL)**: Owns program governance, executive sign-offs, velocity protection, and InfoSec risk reduction.
+4. **Tyler (Technical Deployment Lead - TDL)**: Immerses into client domain, redesigns legacy workflows into agentic pipelines, writes PRDs, builds low-fi prototypes, and designs evaluation criteria.
+5. **Frank (Forward-Deployed Engineer - FDE)**: Anchors prototypes in client environment, hardens enterprise integrations (SSO, ETL, IAM), drives TDD, and builds automated evaluation pipelines inside client VPCs.
+6. **Peter (Platform Engineer)**: Builds "Golden Paths," reusable agent components, and CI/CD observability patterns.
+7. **Alex (Agentic Transformation Lead - ATL)**: Drives organizational change management (OCM) and user adoption across client business units.
 
 ---
 
@@ -51,17 +52,17 @@ This project bridges frontier AI model capabilities into enterprise workflows us
 
 ```
 Phase 1: Discover & Define ──► Phase 2: Prototype & Validate ──► Phase 3: Production Build ──► Phase 4: Harden & Launch
-   (Weeks 0-2 | TDL-Led)            (Weeks 3-6 | TDL+FDE)            (Weeks 6-10 | FDE-Led)          (Weeks 11-12 | Full Squad)
+   (Weeks 0-2 | Logan/Ava/Tyler)     (Weeks 3-6 | Tyler & Frank)      (Weeks 6-10 | Frank & Peter)    (Weeks 11-12 | Full Squad)
 ```
 
 ### Dynamic Capability Resolution Matrix
 
-| Phase | Capability Slot | Resolved Tool / Skill | Output Artifact |
-| :--- | :--- | :--- | :--- |
-| **Phase 1: Discover** | `#CAPABILITY: Customer-Intake`<br>`#CAPABILITY: Scope-Mapping`<br>`#CAPABILITY: PRD-Creation` | `workshop-intake`<br>`opportunity-solution-tree`<br>`create-prd` | `baseline_kpis.json`<br>Frozen PRD |
-| **Phase 2: Architect** | `#CAPABILITY: Arch-Grilling`<br>`#CAPABILITY: API-Design`<br>`#CAPABILITY: InfoSec-Threat` | `grill-with-docs`<br>`api-and-interface-design`<br>`threat-model-analyst` | Architecture ADRs<br>`CONTEXT.md`<br>STRIDE-A Threat Matrix |
-| **Phase 3: Build & QA** | `#CAPABILITY: Task-Breakdown`<br>`#CAPABILITY: TDD`<br>`#CAPABILITY: Code-Review`<br>`#CAPABILITY: Intent-Audit` | `planning-and-task-breakdown`<br>`test-driven-development`<br>`code-review-and-quality`<br>`intended-vs-implemented` | Jira Sprints<br>5-Axis Review<br>*(Rollback to Phase 2 if intent audit fails)* |
-| **Phase 4: Launch** | `#CAPABILITY: Agent-Evaluation`<br>`#CAPABILITY: Release-Deploy`<br>`#CAPABILITY: ROI-Sizing`<br>`#CAPABILITY: Handoff-Artifacts` | `google-agents-cli-eval`<br>`shipping-and-launch`<br>`ai-value-sizing`<br>`shipping-artifacts` | Eval-on-Commit Suite<br>EBITDA Shift Report<br>Client Handoff Packet |
+| Phase | Capability Slot | Resolved Tool / Skill | Squad Owner | Output Artifact |
+| :--- | :--- | :--- | :--- | :--- |
+| **Phase 1: Discover** | `#CAPABILITY: Customer-Intake`<br>`#CAPABILITY: Scope-Mapping`<br>`#CAPABILITY: PRD-Creation` | `workshop-intake`<br>`opportunity-solution-tree`<br>`create-prd` | **Logan, Ava & Tyler** | `baseline_kpis.json`<br>Frozen PRD |
+| **Phase 2: Architect** | `#CAPABILITY: Arch-Grilling`<br>`#CAPABILITY: API-Design`<br>`#CAPABILITY: InfoSec-Threat` | `grill-with-docs`<br>`api-and-interface-design`<br>`threat-model-analyst` | **Tyler & Frank** | Architecture ADRs<br>`CONTEXT.md`<br>STRIDE-A Threat Matrix |
+| **Phase 3: Build & QA** | `#CAPABILITY: Task-Breakdown`<br>`#CAPABILITY: TDD`<br>`#CAPABILITY: Code-Review`<br>`#CAPABILITY: Intent-Audit` | `planning-and-task-breakdown`<br>`test-driven-development`<br>`code-review-and-quality`<br>`intended-vs-implemented` | **Frank & Peter** | Jira Sprints<br>5-Axis Review<br>*(Rollback if intent fails)* |
+| **Phase 4: Launch** | `#CAPABILITY: Agent-Evaluation`<br>`#CAPABILITY: Release-Deploy`<br>`#CAPABILITY: ROI-Sizing`<br>`#CAPABILITY: Handoff-Artifacts` | `google-agents-cli-eval`<br>`shipping-and-launch`<br>`ai-value-sizing`<br>`shipping-artifacts` | **Full Squad** *(Monica, Tyler, Frank, Peter, Alex)* | Eval-on-Commit Suite<br>EBITDA Shift Report<br>Client Handoff Packet |
 
 ---
 
@@ -88,7 +89,7 @@ gbrain-hermes-squad/
 │   ├── STATE.md                   # 12-Week operational state machine tracking
 │   ├── baseline_kpis.json         # Synthetic baseline metrics (50-sample audit)
 │   ├── operations/
-│   │   ├── tdl-squad-matrix.md    # 6-Role squad matrix guide
+│   │   ├── tdl-squad-matrix.md    # Named 6-Role squad matrix roster
 │   │   ├── 12-week-lifecycle.md   # Lifecycle phases & regression loops
 │   │   └── environment-matrix.md  # FDE Data privacy & environment matrix
 │   ├── people/, companies/, concepts/, ideas/, projects/, newsletter/
