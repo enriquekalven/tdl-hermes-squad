@@ -10,7 +10,7 @@
 ### Scaling 12-Week Google Cloud Enterprise Transformations with 5x Operating Leverage
 
 - **Presenter**: Enrique Chan (TDL, Google Cloud Delta /Forward)
-- **Architecture**: Hermes Agent (Orchestration) + 6-Role Squad (Execution) + GBrain (Shared Memory)
+- **Architecture**: Hermes Agent (Orchestration) + Expanded Squad (Execution) + GBrain (Shared Memory)
 - **Repo**: `github.com/enriquekalven/tdl-hermes-squad`
 
 ---
@@ -38,22 +38,24 @@
                ▼                              ▼
 ┌──────────────────────────────┐┌──────────────────────────────┐
 │ 2. SPECIALIST SQUAD MATRIX   ││ 3. GBRAIN PERSISTENT MEMORY  │
-│    10X Lead · AIAL · TDL     ││    ~/.gbrain/                │
-│    FDE · Platform · ATL      ││    STATE.md · baseline_kpis  │
+│    Logan · Ava · Eva · Tyler ││    ~/.gbrain/                │
+│    Sam · Frank · Peter · Alex││    STATE.md · baseline_kpis  │
 └──────────────────────────────┘└──────────────────────────────┘
 ```
 
 ---
 
-## 👥 Slide 4: The 6-Role Squad Matrix
-# Synchronized Execution Across 6 Specialized Roles
+## 👥 Slide 4: The Expanded 8-Role Squad Roster
+# Synchronized Execution Across Tier 1 Core Specialists
 
-- **🎯 10X Lead**: Originate & shape high-EBITDA enterprise opportunities.
-- **🛡️ AI Activation Lead (AIAL)**: Program governance, sign-offs, and velocity protection.
-- **🛠️ Technical Deployment Lead (TDL)**: Domain immersion, workflow redesign, PRD freezing, low-fi prototyping.
-- **💻 Forward-Deployed Engineer (FDE)**: Production build, client VPC integration, automated evals.
-- **⚙️ Platform Engineer**: Reusable Golden Paths, CI/CD, and telemetry patterns.
-- **🚀 Agentic Transformation Lead (ATL)**: Organizational change management (OCM) and user enablement.
+- **🎯 Logan (10X Lead)**: Originate & shape high-EBITDA enterprise opportunities.
+- **🛡️ Ava (AIAL)**: Program governance, sign-offs, and velocity protection.
+- **💎 Eva (Value Lead)**: Baseline KPI audits (`baseline_kpis.json`), tokenomics & EBITDA sizing.
+- **🛠️ Tyler (TDL)**: Domain immersion, workflow redesign, PRD freezing, low-fi prototyping.
+- **🔒 Sam (Security Specialist)**: STRIDE-A threat matrix modeling & sandbox PII data privacy.
+- **💻 Frank (FDE)**: Production build, client VPC integration, TDD & 5-axis code reviews.
+- **⚙️ Peter (Platform Eng)**: Reusable Golden Paths, CI/CD, and telemetry patterns.
+- **🚀 Alex (ATL)**: Organizational change management (OCM) and user enablement.
 
 ---
 
@@ -62,7 +64,7 @@
 
 ```
 Phase 1: Discover & Define ──► Phase 2: Prototype & Validate ──► Phase 3: Production Build ──► Phase 4: Harden & Launch
-   (Weeks 0-2 | TDL-Led)            (Weeks 3-6 | TDL+FDE)            (Weeks 6-10 | FDE-Led)          (Weeks 11-12 | Full Squad)
+ (Weeks 0-2 | Logan/Ava/Eva/Rory)    (Weeks 3-6 | Tyler/Sam/Clara)    (Weeks 6-10 | Frank/Sam/Dara)    (Weeks 11-12 | Full Squad)
 ```
 
 - **Phase 1**: `#CAPABILITY: Customer-Intake` ➔ `workshop-intake` | `baseline_kpis.json`
@@ -82,19 +84,20 @@ Phase 1: Discover & Define ──► Phase 2: Prototype & Validate ──► Pha
 
 ---
 
-## 🛡️ Slide 7: Governance & Safety Nets
-# Strict Scope Control & Automated Rollbacks
+## 🔬 Slide 7: AlphaEvolve Stress Testing & Blindspot Hardening
+# Hardening the Architecture Against Real-World Edge Cases
 
-- **1-In, 1-Out Trade-off Rule**: RICE-driven feature swaps prevent sprint bloat.
-- **Automated Intent Audits**: `intended-vs-implemented` checks code against PRD non-goals.
-- **Automated Rollback Checkpoint**: Trigger `./scripts/rollback.sh PHASE_2` if breaking architectural drift occurs.
+1. **Multi-Tenant Namespace Isolation**: Prevents context bleeding between different client accounts via `~/.gbrain/tenants/<id>/`.
+2. **Reward Hacking Prevention**: Multi-objective fitness scoring pairs handling time reduction (50%) with zero-defect TDD test pass rates (50%).
+3. **Atomic State Concurrency**: Implements file-locking on `STATE.md` to prevent race conditions during parallel subagent execution.
+4. **Fallback Capability Engine**: Graceful fallback to default templates if upstream tool dependencies break.
 
 ---
 
-## 🔒 Slide 8: Enterprise Security & Data Privacy
+## 🛡️ Slide 8: Enterprise Security & Data Privacy
 # De-Risking InfoSec Review Boards
 
-- **STRIDE-A Threat Matrix**: `threat-model-analyst` runs threat modeling before InfoSec review.
+- **STRIDE-A Threat Matrix**: Sam (`threat-model-analyst`) runs threat modeling before InfoSec review.
 - **Argolis & GTM Privacy Rule**: Customer PII/PHI is never uploaded to non-prod sandbox environments.
 - **Data Scrubbing**: `dummy-dataset` synthetic data + `ast-resilient-remediation` static code checks.
 
@@ -115,4 +118,4 @@ Phase 1: Discover & Define ──► Phase 2: Prototype & Validate ──► Pha
 
 - **Open Source Repository**: `https://github.com/enriquekalven/tdl-hermes-squad`
 - **Open Standards**: Built on `SKILL.md` (agentskills.io) compatible with Hermes, Antigravity, Cursor, and Claude Code.
-- **Call to Action**: Clone the repo, run `./scripts/setup.sh`, and empower your deployment leads today!
+- **Call to Action**: Run `npx skills add enriquekalven/tdl-hermes-squad` and empower your deployment leads today!
