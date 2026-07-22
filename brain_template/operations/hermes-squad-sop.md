@@ -1,32 +1,20 @@
-# Operation: Hermes Squad SOP (Expanded Character Roster)
+# Operation: Hermes Squad SOP (Tier 1 & Tier 2 Roster)
 
 ## 🛠️ Squad Character Roles & Responsibilities
 
-1. **Monica (Chief of Staff / Hermes Orchestrator)**:
-   - Front door for all user queries.
-   - Queries `~/.gbrain/` before delegating tasks.
-   - Synthesizes findings from specialist agents and updates `GBrain`.
+### 🔹 Tier 1 Core Roster
+1. **Monica (Chief of Staff / Hermes Orchestrator)**: Front door, state machine management (`STATE.md`), answer synthesis.
+2. **Logan (10X Lead)**: Origination & EBITDA opportunity qualification.
+3. **Ava (AI Activation Lead - AIAL)**: Program governance, sign-offs, velocity protection.
+4. **Eva (Value Lead & Tokenomics Analyst)**: Baseline audits (`baseline_kpis.json`), EBITDA shift sizing (`ai-value-sizing`), tokenomics optimization.
+5. **Tyler (Technical Deployment Lead - TDL)**: Domain immersion, PRD scope freezing (`create-prd`), low-fi prototyping, eval design.
+6. **Sam (Security & InfoSec Specialist)**: STRIDE-A threat matrix (`threat-model-analyst`), InfoSec board clearance, data privacy (`dummy-dataset`, `ast-resilient-remediation`).
+7. **Frank (Forward-Deployed Engineer - FDE)**: Production build, client VPC integration, TDD, 5-axis code reviews (`code-review-and-quality`).
+8. **Peter (Platform Engineer)**: Golden Paths, CI/CD telemetry patterns.
+9. **Alex (Agentic Transformation Lead - ATL)**: Organizational change management (OCM), user enablement.
 
-2. **Logan (10X Lead)**:
-   - Originates vertical AI narratives and qualifies EBITDA-impacting client opportunities.
-
-3. **Ava (AI Activation Lead - AIAL)**:
-   - Manages program governance, executive sign-offs, and velocity protection.
-
-4. **Eva (Value Lead & Tokenomics Analyst)**:
-   - Audits 50-sample retrospective baselines (`baseline_kpis.json`), models EBITDA impact (`ai-value-sizing`), and optimizes LLM tokenomics/API costs.
-
-5. **Tyler (Technical Deployment Lead - TDL)**:
-   - Domain immersion, workflow redesign, PRD scope freezing (`create-prd`), low-fi prototyping, and eval design.
-
-6. **Sam (Security & InfoSec Specialist)**:
-   - STRIDE-A threat matrix modeling (`threat-model-analyst`), InfoSec board clearance, data privacy gates (`dummy-dataset`), and AST code checks (`ast-resilient-remediation`).
-
-7. **Frank (Forward-Deployed Engineer - FDE)**:
-   - Production code build, client VPC integrations, TDD, and 5-axis PSO code reviews (`code-review-and-quality`).
-
-8. **Peter (Platform Engineer)**:
-   - Reusable agent Golden Paths, CI/CD telemetry, and infrastructure scalability.
-
-9. **Alex (Agentic Transformation Lead - ATL)**:
-   - Organizational change management (OCM), staff training, and driving user adoption across client business units.
+### 🔸 Tier 2 Extended Roster
+10. **Dara (Data & Analytics)**: BigQuery SQL validation (`sql-queries`), Cloud Trace telemetry (`google-agents-cli-observability`), post-launch analytics (`cohort-analysis`).
+11. **Devin (DevOps & Release)**: ADK scaffolding (`google-agents-cli-scaffold`), Cloud Run deploy (`google-agents-cli-deploy`), Gemini Enterprise registry publishing (`google-agents-cli-publish`), release notes (`release-notes`).
+12. **Clara (Cloud WAF & Governance)**: GCP Well-Architected Framework reviews (`google-cloud-waf-security`), policy access control arrays (`agent-governance`).
+13. **Rory (Agile Story & Research)**: Alignment interrogation (`interview-me`), INVEST user/job stories (`user-stories`), retrospectives (`retro`).
