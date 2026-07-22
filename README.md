@@ -2,7 +2,24 @@
 
 > **The Operational Blueprint for Technical Deployment Leads (TDLs) executing the 12-Week Agentic Transformation Lifecycle on Google Cloud.**
 
-This project bridges frontier AI model capabilities into enterprise workflows using a 3-layer local multi-agent architecture powered by **Hermes Agent**, a **Tier 1 & Tier 2 Squad Matrix**, and **GBrain Shared Persistent Memory**.
+This project bridges frontier AI model capabilities into enterprise workflows using a 3-layer local multi-agent architecture powered by **Hermes Agent**, an **Expanded Tier 1 & Tier 2 Squad Matrix**, and **GBrain Shared Persistent Memory**.
+
+---
+
+## ⚡ Zero-Install Quick Start (10 Seconds)
+
+Give your AI coding agent (Antigravity, Cursor, Claude Code, or Hermes CLI) the master TDL operational meta-skill in one command:
+
+```bash
+npx skills add enriquekalven/tdl-hermes-squad
+```
+
+Or clone and initialize locally:
+```bash
+git clone https://github.com/enriquekalven/tdl-hermes-squad.git
+cd tdl-hermes-squad
+./scripts/setup.sh
+```
 
 ---
 
@@ -70,10 +87,18 @@ Phase 1: Discover & Define ──► Phase 2: Prototype & Validate ──► Pha
 
 ---
 
+## 🛡️ Governance & Data Privacy Policies
+
+1. **Strict 1-In, 1-Out Scope Governance**: Mid-flight client feature requests require ejecting an equal-effort RICE item back to the backlog or Post-Week 12 Expansion.
+2. **Zero-PII Local Data Policy**: `~/.gbrain/` only stores anonymized architecture notes/SOPs scrubbed via `dummy-dataset`. Real customer data stays strictly inside Client VPCs.
+3. **FDE Quality Gate**: Frank (FDE) must pass 5-axis PSO Code Review, TDD unit tests, and Intent Audits (`intended-vs-implemented`) before PR merge.
+
+---
+
 ## 📂 Repository Structure
 
 ```
-gbrain-hermes-squad/
+tdl-hermes-squad/
 ├── README.md                      # TDL Operational Blueprint & Ecosystem Architecture
 ├── LICENSE                        # Open-source MIT License
 ├── .gitignore                     # Git ignore rules
@@ -86,6 +111,9 @@ gbrain-hermes-squad/
 │   │   ├── 12-week-lifecycle.md   # Lifecycle phases & regression loops
 │   │   └── environment-matrix.md  # FDE Data privacy & environment matrix
 │   ├── people/, companies/, concepts/, ideas/, projects/, newsletter/
+├── docs/
+│   ├── EXECUTIVE_GUIDE.md         # Comprehensive setup & leadership evaluation guide
+│   └── PRESENTATION_DECK.md       # 10-slide executive presentation deck
 ├── skills/
 │   ├── gbrain/
 │   │   └── SKILL.md               # GBrain persistent state skill (TDL Edition)
@@ -94,21 +122,6 @@ gbrain-hermes-squad/
 └── scripts/
     └── setup.sh                   # Installer script for local environment
 ```
-
----
-
-## 🚀 Installation & Quick Start
-
-```bash
-git clone https://github.com/enriquekalven/tdl-hermes-squad.git
-cd gbrain-hermes-squad
-
-# Run the TDL Squad installer
-./scripts/setup.sh
-```
-
-To trigger the master TDL operational meta-skill inside Hermes Agent:
-> *"Let's run tdl-field-guide to lead this Delta engagement."*
 
 ---
 
