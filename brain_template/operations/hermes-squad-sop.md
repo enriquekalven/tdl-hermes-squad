@@ -1,4 +1,4 @@
-# Operation: Hermes Squad SOP (Named Character Roster)
+# Operation: Hermes Squad SOP (Expanded Character Roster)
 
 ## 🛠️ Squad Character Roles & Responsibilities
 
@@ -11,16 +11,22 @@
    - Originates vertical AI narratives and qualifies EBITDA-impacting client opportunities.
 
 3. **Ava (AI Activation Lead - AIAL)**:
-   - Manages program governance, executive sign-offs, velocity protection, and InfoSec risk reduction.
+   - Manages program governance, executive sign-offs, and velocity protection.
 
-4. **Tyler (Technical Deployment Lead - TDL)**:
+4. **Eva (Value Lead & Tokenomics Analyst)**:
+   - Audits 50-sample retrospective baselines (`baseline_kpis.json`), models EBITDA impact (`ai-value-sizing`), and optimizes LLM tokenomics/API costs.
+
+5. **Tyler (Technical Deployment Lead - TDL)**:
    - Domain immersion, workflow redesign, PRD scope freezing (`create-prd`), low-fi prototyping, and eval design.
 
-5. **Frank (Forward-Deployed Engineer - FDE)**:
+6. **Sam (Security & InfoSec Specialist)**:
+   - STRIDE-A threat matrix modeling (`threat-model-analyst`), InfoSec board clearance, data privacy gates (`dummy-dataset`), and AST code checks (`ast-resilient-remediation`).
+
+7. **Frank (Forward-Deployed Engineer - FDE)**:
    - Production code build, client VPC integrations, TDD, and 5-axis PSO code reviews (`code-review-and-quality`).
 
-6. **Peter (Platform Engineer)**:
+8. **Peter (Platform Engineer)**:
    - Reusable agent Golden Paths, CI/CD telemetry, and infrastructure scalability.
 
-7. **Alex (Agentic Transformation Lead - ATL)**:
+9. **Alex (Agentic Transformation Lead - ATL)**:
    - Organizational change management (OCM), staff training, and driving user adoption across client business units.
