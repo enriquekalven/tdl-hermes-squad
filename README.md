@@ -23,6 +23,53 @@ cd tdl-hermes-squad
 
 ---
 
+## 💬 How to Trigger & Interact with Monica
+
+Monica is your **Chief of Staff & Hermes Orchestrator**. She acts as the single front door for user queries, managing the 12-week state machine (`STATE.md`), delegating tasks to named specialist agents (Logan, Ava, Eva, Tyler, Sam, Frank, Peter, Alex), and synthesizing answers.
+
+You can trigger and communicate with Monica across two interfaces:
+
+### 1. 🤖 In Antigravity / Jetski / Agent IDE (GUI Mode)
+Simply type natural-language instructions into your agent prompt box:
+
+* **Start an Engagement Playbook**:
+  > *"Monica, let's run tdl-field-guide to lead this Delta engagement."*
+* **Check Status & Active Phase**:
+  > *"Monica, check GBrain STATE.md and give me a progress report on Phase 1."*
+* **Architecture Review**:
+  > *"Monica, have Tyler run grill-with-docs on our proposed API gateway and generate ADRs."*
+* **Code & Intent Audit**:
+  > *"Monica, have Frank run intended-vs-implemented to check if our Phase 3 build matches PRD non-goals."*
+
+---
+
+### 2. 💻 In Terminal via Hermes CLI (CLI Mode)
+Launch Hermes CLI in your terminal:
+```bash
+hermes
+```
+
+Then prompt Monica directly:
+* *"Monica, check ~/.gbrain/tenants/ford/baseline_kpis.json and calculate our EBITDA shift."*
+* *"Monica, inspect active PRs in GitHub and log sprint status to GBrain."*
+
+#### Utility Command Helpers:
+```bash
+# 🔍 Search GBrain Memory (Tenant Scope)
+python3 scripts/search_brain.py "payment architecture" --tenant ford
+
+# 📊 Run EBITDA & Handling Time Evaluation (Multi-Objective)
+python3 scripts/run_evals.py ford
+
+# 🎯 Resolve a TDL Capability Slot
+python3 scripts/resolve_capability.py "#CAPABILITY: InfoSec-Threat"
+
+# ⚠️ Trigger Automated State Checkpoint Rollback
+./scripts/rollback.sh PHASE_2
+```
+
+---
+
 ## 📐 Ecosystem Architecture
 
 ```
@@ -113,7 +160,8 @@ tdl-hermes-squad/
 │   ├── people/, companies/, concepts/, ideas/, projects/, newsletter/
 ├── docs/
 │   ├── EXECUTIVE_GUIDE.md         # Comprehensive setup & leadership evaluation guide
-│   └── PRESENTATION_DECK.md       # 10-slide executive presentation deck
+│   ├── PRESENTATION_DECK.md       # 10-slide executive presentation deck
+│   └── WAYS_OF_WORKING_PRESENTATION.md # 9-slide TDL maturity framework deck
 ├── skills/
 │   ├── gbrain/
 │   │   └── SKILL.md               # GBrain persistent state skill (TDL Edition)
