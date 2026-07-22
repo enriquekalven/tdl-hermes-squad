@@ -106,7 +106,7 @@ gbrain-hermes-squad/
 ## 🚀 Installation & Quick Start
 
 ```bash
-git clone https://github.com/<your-username>/gbrain-hermes-squad.git
+git clone https://github.com/enriquekalven/tdl-hermes-squad.git
 cd gbrain-hermes-squad
 
 # Run the TDL Squad installer

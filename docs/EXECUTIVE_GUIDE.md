@@ -49,7 +49,7 @@ gcloud auth list
 ### 2. Local Repository & Memory Initialization
 Clone the repository and run the automated installer:
 ```bash
-git clone https://github.com/<your-username>/gbrain-hermes-squad.git
+git clone https://github.com/enriquekalven/tdl-hermes-squad.git
 cd gbrain-hermes-squad
 
 # Run the 1-step setup script
