@@ -2,7 +2,7 @@
 
 > **The Operational Blueprint for Technical Deployment Leads (TDLs) executing the 12-Week Agentic Transformation Lifecycle on Google Cloud.**
 
-This project bridges frontier AI model capabilities into enterprise workflows using a 3-layer local multi-agent architecture powered by **Hermes Agent**, an **Expanded Tier 1 & Tier 2 Squad Matrix**, and **GBrain Shared Persistent Memory**.
+This project bridges frontier AI model capabilities into enterprise workflows using a 3-layer local multi-agent architecture powered by **Hermes Agent**, an **Expanded Tier 1 & Tier 2 Squad Matrix**, the **Google ADK CLI Skills Suite**, and **GBrain Shared Persistent Memory**.
 
 ---
 
@@ -25,7 +25,7 @@ cd tdl-hermes-squad
 
 ## 💬 How to Trigger & Interact with Monica
 
-Monica is your **Chief of Staff & Hermes Orchestrator**. She acts as the single front door for user queries, managing the 12-week state machine (`STATE.md`), delegating tasks to named specialist agents (Logan, Ava, Eva, Tyler, Sam, Frank, Peter, Alex), and synthesizing answers.
+Monica is your **Chief of Staff & Hermes Orchestrator**. She acts as the single front door for user queries, managing the 12-week state machine (`STATE.md`), delegating tasks to named specialist agents (Logan, Ava, Eva, Tyler, Sam, Frank, Peter, Alex, Dara, Devin, Clara, Rory), and synthesizing answers.
 
 You can trigger and communicate with Monica across two interfaces:
 
@@ -98,24 +98,23 @@ python3 scripts/resolve_capability.py "#CAPABILITY: InfoSec-Threat"
 
 ---
 
-## 👥 The Named Squad Roster (Tier 1 Core & Tier 2 Extended)
+## 👥 The Named Squad Roster & Google ADK CLI Tool Integration
 
-### 🔹 Tier 1 Core Squad
-1. **Monica (Chief of Staff & Hermes Orchestrator)**: Single front door, state machine management (`STATE.md`), synthesis.
-2. **Logan (10X Lead)**: Qualifies high-leverage business opportunities moving client EBITDA.
-3. **Ava (AI Activation Lead - AIAL)**: Program governance, executive sign-offs, velocity protection, risk mitigation.
-4. **Eva (Value Lead & Tokenomics Analyst)**: Baseline KPI audits (`baseline_kpis.json`), EBITDA impact sizing (`ai-value-sizing`), tokenomics.
-5. **Tyler (Technical Deployment Lead - TDL)**: Domain immersion, PRD scope freezing (`create-prd`), low-fi prototyping, eval design.
-6. **Sam (Security & InfoSec Specialist)**: STRIDE-A threat matrix modeling (`threat-model-analyst`), InfoSec board clearance, data privacy (`dummy-dataset`, `ast-resilient-remediation`).
-7. **Frank (Forward-Deployed Engineer - FDE)**: Production code build, client VPC integration, TDD, 5-axis PSO code reviews (`code-review-and-quality`).
-8. **Peter (Platform Engineer)**: Reusable agent "Golden Paths," CI/CD telemetry.
-9. **Alex (Agentic Transformation Lead - ATL)**: Organizational change management (OCM), staff enablement, user adoption.
-
-### 🔸 Tier 2 Extended Specialists
-10. **Dara (Data & Analytics Specialist)**: BigQuery SQL validation (`sql-queries`), Cloud Trace observability (`google-agents-cli-observability`), cohort analytics (`ab-test-analysis`).
-11. **Devin (DevOps & Release Specialist)**: Cloud Run / GKE deployment (`google-agents-cli-deploy`), Gemini Enterprise registry publishing (`google-agents-cli-publish`), release notes (`release-notes`).
-12. **Clara (Cloud WAF & Governance Specialist)**: GCP Well-Architected Framework reviews (`google-cloud-waf-security`), policy access control arrays (`agent-governance`).
-13. **Rory (Agile Story & Research Lead)**: Stakeholder alignment interrogation (`interview-me`), INVEST user/job stories (`user-stories`), retrospectives (`retro`).
+| Squad Role | Persona Name | Primary Focus & ADK Tool Mapping |
+| :--- | :--- | :--- |
+| **Chief of Staff** | **Monica** | Single front door & state machine manager (`google-agents-cli-workflow`) |
+| **10X Lead** | **Logan** | Originate & shape high-EBITDA enterprise opportunities |
+| **AIAL Lead** | **Ava** | Program governance, executive sign-offs, velocity protection |
+| **Value Lead** | **Eva** | Baseline KPI audits (`baseline_kpis.json`), tokenomics & evals (`google-agents-cli-eval`) |
+| **TDL Architect** | **Tyler** | Domain immersion, workflow redesign, PRD freezing, low-fi prototyping |
+| **Security Specialist** | **Sam** | STRIDE-A threat matrix modeling & sandbox synthetic data privacy |
+| **FDE Lead** | **Frank** | Production ADK microservice build (`google-agents-cli-adk-code`, TDD) |
+| **Platform Eng** | **Peter** | Reusable Golden Paths, CI/CD telemetry (`google-agents-cli-observability`) |
+| **ATL Lead** | **Alex** | Organizational change management (OCM) & IT staff enablement |
+| **Data & Analytics** | **Dara** | BigQuery SQL, Cloud Trace observability (`google-agents-cli-observability`) |
+| **DevOps Specialist** | **Devin** | ADK scaffold (`google-agents-cli-scaffold`), Cloud Run deploy (`google-agents-cli-deploy`), Gemini Enterprise publishing (`google-agents-cli-publish`) |
+| **Cloud WAF & Gov** | **Clara** | GCP Well-Architected Framework reviews (`google-cloud-waf-security`) |
+| **Agile Story Lead** | **Rory** | Stakeholder alignment interrogation (`interview-me`), INVEST user stories (`user-stories`) |
 
 ---
 
@@ -126,14 +125,14 @@ Phase 1: Discover & Define ──► Phase 2: Prototype & Validate ──► Pha
  (Weeks 0-2 | Logan/Ava/Eva/Rory)    (Weeks 3-6 | Tyler/Sam/Clara)    (Weeks 6-10 | Frank/Sam/Dara)    (Weeks 11-12 | Full Squad)
 ```
 
-### Dynamic Capability Resolution Matrix
+### Dynamic Capability Resolution Matrix (With Google ADK CLI Suite)
 
 | Phase | Capability Slot | Resolved Tool / Skill | Squad Owner | Output Artifact |
 | :--- | :--- | :--- | :--- | :--- |
-| **Phase 1: Discover** | `#CAPABILITY: Customer-Intake`<br>`#CAPABILITY: Scope-Mapping`<br>`#CAPABILITY: PRD-Creation`<br>`#CAPABILITY: ROI-Sizing` | `workshop-intake` / `interview-me`<br>`opportunity-solution-tree` / `user-stories`<br>`create-prd`<br>`ai-value-sizing` | **Logan, Ava, Eva, Rory & Tyler** | `baseline_kpis.json`<br>Frozen PRD |
-| **Phase 2: Architect** | `#CAPABILITY: Arch-Grilling`<br>`#CAPABILITY: API-Design`<br>`#CAPABILITY: InfoSec-Threat` | `grill-with-docs` / `google-cloud-waf-security`<br>`api-and-interface-design`<br>`threat-model-analyst` / `agent-governance` | **Tyler, Sam, Clara & Frank** | Architecture ADRs<br>`CONTEXT.md`<br>STRIDE-A Threat Matrix |
-| **Phase 3: Build & QA** | `#CAPABILITY: Task-Breakdown`<br>`#CAPABILITY: TDD`<br>`#CAPABILITY: Code-Review`<br>`#CAPABILITY: Intent-Audit` | `planning-and-task-breakdown`<br>`test-driven-development`<br>`code-review-and-quality` / `sql-queries`<br>`intended-vs-implemented` | **Frank, Sam, Dara & Peter** | Jira Sprints<br>5-Axis Review<br>*(Rollback if intent fails)* |
-| **Phase 4: Launch** | `#CAPABILITY: Agent-Evaluation`<br>`#CAPABILITY: Release-Deploy`<br>`#CAPABILITY: ROI-Sizing`<br>`#CAPABILITY: Handoff-Artifacts` | `google-agents-cli-eval` / `google-agents-cli-observability`<br>`shipping-and-launch` / `google-agents-cli-deploy`<br>`ai-value-sizing` / `ab-test-analysis`<br>`shipping-artifacts` / `google-agents-cli-publish` | **Full Squad** *(Monica, Devin, Dara, Alex)* | Eval-on-Commit Suite<br>EBITDA Shift Report<br>Client Handoff Packet |
+| **Phase 1: Discover** | `#CAPABILITY: ADK-Workflow`<br>`#CAPABILITY: Customer-Intake`<br>`#CAPABILITY: Scope-Mapping`<br>`#CAPABILITY: PRD-Creation`<br>`#CAPABILITY: ROI-Sizing` | `google-agents-cli-workflow`<br>`workshop-intake` / `interview-me`<br>`opportunity-solution-tree` / `user-stories`<br>`create-prd`<br>`ai-value-sizing` | **Logan, Ava, Eva, Rory & Tyler** | `baseline_kpis.json`<br>Frozen PRD |
+| **Phase 2: Architect** | `#CAPABILITY: Scaffolding`<br>`#CAPABILITY: Arch-Grilling`<br>`#CAPABILITY: API-Design`<br>`#CAPABILITY: InfoSec-Threat` | `google-agents-cli-scaffold`<br>`grill-with-docs` / `google-cloud-waf-security`<br>`api-and-interface-design`<br>`threat-model-analyst` / `agent-governance` | **Tyler, Sam, Clara, Devin & Frank** | Architecture ADRs<br>`CONTEXT.md`<br>STRIDE-A Threat Matrix |
+| **Phase 3: Build & QA** | `#CAPABILITY: ADK-Code`<br>`#CAPABILITY: Task-Breakdown`<br>`#CAPABILITY: TDD`<br>`#CAPABILITY: Code-Review`<br>`#CAPABILITY: Intent-Audit` | `google-agents-cli-adk-code`<br>`planning-and-task-breakdown`<br>`test-driven-development`<br>`code-review-and-quality`<br>`intended-vs-implemented` | **Frank, Sam, Dara & Peter** | ADK Agent Codebase<br>Jira Sprints<br>5-Axis PSO Review<br>*(Rollback if intent fails)* |
+| **Phase 4: Launch** | `#CAPABILITY: Agent-Evaluation`<br>`#CAPABILITY: Agent-Observability`<br>`#CAPABILITY: Release-Deploy`<br>`#CAPABILITY: Registry-Publish`<br>`#CAPABILITY: ROI-Sizing`<br>`#CAPABILITY: Handoff-Artifacts` | `google-agents-cli-eval`<br>`google-agents-cli-observability`<br>`shipping-and-launch` / `google-agents-cli-deploy`<br>`google-agents-cli-publish`<br>`ai-value-sizing` / `ab-test-analysis`<br>`shipping-artifacts` | **Full Squad** *(Monica, Devin, Dara, Alex)* | Quality Flywheel Evals<br>Gemini Registry Pub<br>EBITDA Shift Report<br>Client Handoff Packet |
 
 ---
 
@@ -141,7 +140,7 @@ Phase 1: Discover & Define ──► Phase 2: Prototype & Validate ──► Pha
 
 1. **Strict 1-In, 1-Out Scope Governance**: Mid-flight client feature requests require ejecting an equal-effort RICE item back to the backlog or Post-Week 12 Expansion.
 2. **Zero-PII Local Data Policy**: `~/.gbrain/` only stores anonymized architecture notes/SOPs scrubbed via `dummy-dataset`. Real customer data stays strictly inside Client VPCs.
-3. **FDE Quality Gate**: Frank (FDE) must pass 5-axis PSO Code Review, TDD unit tests, and Intent Audits (`intended-vs-implemented`) before PR merge.
+3. **FDE Quality Gate**: Frank (FDE) uses `google-agents-cli-adk-code` paired with TDD unit tests and Intent Audits (`intended-vs-implemented`) before PR merge.
 
 ---
 
@@ -171,7 +170,11 @@ tdl-hermes-squad/
 │   └── tdl-field-guide/
 │       └── SKILL.md               # 12-Week TDL Master Operational Meta-Skill
 └── scripts/
-    └── setup.sh                   # Installer script for local environment
+    ├── setup.sh                   # Installer script for local environment
+    ├── tdl_console.py             # Interactive TDL CLI Console
+    ├── search_brain.py            # Multi-Tenant GBrain search tool
+    ├── run_evals.py               # Multi-Objective EBITDA eval tool
+    └── resolve_capability.py      # Dynamic capability slot resolver
 ```
 
 ---
