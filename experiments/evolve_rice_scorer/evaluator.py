@@ -5,6 +5,8 @@ Evaluates candidate RICE scoring functions against ground-truth trade-off benchm
 
 import json
 import sys
+import os
+import argparse
 import time
 from initial_program import calculate_rice_score, evaluate_feature_swap
 
@@ -28,7 +30,7 @@ BENCHMARK_SCENARIOS = [
     }
 ]
 
-def run_evaluation():
+def run_evaluation(output_file=None):
     start_time = time.time()
     correct = 0
 
@@ -41,7 +43,6 @@ def run_evaluation():
     accuracy = correct / len(BENCHMARK_SCENARIOS)
     elapsed_ms = (time.time() - start_time) * 1000
 
-    # Composite fitness score (0.0 to 1.0)
     fitness_score = accuracy * 0.9 + (1.0 if elapsed_ms < 50 else 0.5) * 0.1
 
     metrics = {
@@ -50,8 +51,17 @@ def run_evaluation():
         "latency_ms": round(elapsed_ms, 2)
     }
 
+    if output_file:
+        with open(output_file, "w") as f:
+            json.dump(metrics, f, indent=2)
+
     print(json.dumps(metrics))
     return metrics
 
 if __name__ == "__main__":
-    run_evaluation()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output-file", type=str, help="Path to output JSON file")
+    parser.add_argument("--program", type=str, help="Path to program file")
+    args, unknown = parser.parse_known_args()
+
+    run_evaluation(output_file=args.output_file)
