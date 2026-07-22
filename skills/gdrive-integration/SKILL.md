@@ -10,10 +10,10 @@ This skill enables Monica (Hermes Chief of Staff) to search, query, and sync Goo
 ## 🛠️ Integration Capabilities
 
 ### 1. Active Account Context
-- Account: `enriq@google.com` (authenticated via Google Cloud CLI `gcloud`).
+- Account: `<your-email@domain.com>` (authenticated via Google Cloud CLI `gcloud`).
 
 ### 2. Reading Google Docs & Architecture Specs
-- Search Google Drive folders for client docs (e.g., `go/welcome-to-delta` or `go/tdl-fde-pm-mindset`).
+- Search Google Drive folders for client docs (e.g., `client-onboarding-docs` or `tdl-pm-mindset`).
 - Extract document headers, goals, non-goals, and technical requirements.
 - Store summary notes under `~/.gbrain/projects/<doc_name>.md`.
 

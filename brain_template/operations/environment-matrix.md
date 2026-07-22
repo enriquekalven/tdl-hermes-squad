@@ -4,7 +4,7 @@
 | :--- | :--- | :--- |
 | **GTM FDE Projects** | Rapid PoCs / Internal EAP | **NO CUSTOMER DEMOS** |
 | **Argolis / GCP** | Customer Demo Solutions | **Scrubbed / Synthetic Mocks Only** |
-| **go/demos** | Sales & Internal Initiatives | Standardized Demos |
+| **demo-repository** | Sales & Internal Initiatives | Standardized Demos |
 | **Client VPC** | Phase 3 Build & Production | **Real Customer Data Permitted** |
 
 ## 🛡️ Data Safeguards

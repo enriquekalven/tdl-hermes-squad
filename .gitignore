@@ -1,6 +1,14 @@
-# Environment variables
+# Environment variables & secrets
 .env
 .env.local
+.env.*
+*.pem
+*.key
+*.token
+
+# GBrain local runtime directories & state
+.gbrain/
+active_tenant
 
 # Logs
 *.log
@@ -15,7 +23,9 @@ logs/
 .DS_Store
 Thumbs.db
 
-# Runtime directories
+# Runtime & virtualenv directories
 node_modules/
 dist/
 __pycache__/
+.venv/
+venv/
