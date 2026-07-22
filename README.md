@@ -53,8 +53,11 @@ Then prompt Monica directly:
 * *"Monica, check ~/.gbrain/tenants/acme_corp/baseline_kpis.json and calculate our EBITDA shift."*
 * *"Monica, inspect active PRs in GitHub and log sprint status to GBrain."*
 
-#### Utility Command Helpers:
+#### Utility Command Helpers & Interactive Console:
 ```bash
+# 🛡️ Launch Hermes TDL Interactive Console (Zero-Friction CLI)
+python3 scripts/tdl_console.py
+
 # 🔍 Search GBrain Memory (Tenant Scope)
 python3 scripts/search_brain.py "payment architecture" --tenant acme_corp
 
