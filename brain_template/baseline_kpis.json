@@ -1,0 +1,15 @@
+{
+  "client_name": "<Client Name>",
+  "audit_sample_size": 50,
+  "baseline_metrics": {
+    "manual_handling_time_mins": 45.0,
+    "manual_unit_cost_usd": 35.0,
+    "baseline_error_rate_pct": 12.5
+  },
+  "target_metrics": {
+    "agentic_handling_time_mins": 5.0,
+    "agentic_unit_cost_usd": 4.5,
+    "target_error_rate_pct": 2.0
+  },
+  "projected_ebitda_impact_annual_usd": 1500000.00
+}
