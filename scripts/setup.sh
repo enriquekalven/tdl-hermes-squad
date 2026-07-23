@@ -1,16 +1,28 @@
 #!/usr/bin/env bash
 # Quick Installer for Delta TDL Squad (GBrain + Hermes Agent)
-# Supports Local, In-Repo Git, and Google Drive Mount Paths
+# Google Shared Drive & Environment Variable Edition
 
 set -e
 
-TENANT_ID=${1:-"default"}
+# Load .env file if present in working directory
+if [ -f ".env" ]; then
+  export $(grep -v '^#' .env | xargs)
+fi
+
+TENANT_ID=${1:-${GBRAIN_TENANT:-"default"}}
 CUSTOM_PATH=$2
 
-# Detect Storage Location
+# Detect Storage Location:
+# 1. Custom CLI path ($2)
+# 2. Environment Variable ($GBRAIN_DRIVE_DIR)
+# 3. Git Repo (.gbrain)
+# 4. Home directory (~/.gbrain)
 if [ -n "$CUSTOM_PATH" ]; then
   GBRAIN_BASE="$CUSTOM_PATH"
-  echo "📁 Using Custom / Google Drive Path: $GBRAIN_BASE"
+  echo "📁 Using Custom CLI Path: $GBRAIN_BASE"
+elif [ -n "$GBRAIN_DRIVE_DIR" ]; then
+  GBRAIN_BASE="$GBRAIN_DRIVE_DIR"
+  echo "📁 Using Google Shared Drive (GBRAIN_DRIVE_DIR): $GBRAIN_BASE"
 elif git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   REPO_ROOT=$(git rev-parse --show-toplevel)
   GBRAIN_BASE="$REPO_ROOT/.gbrain"

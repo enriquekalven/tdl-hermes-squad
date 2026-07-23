@@ -14,10 +14,21 @@ Give your AI coding agent (Antigravity, Cursor, Claude Code, or Hermes CLI) the 
 npx skills add enriquekalven/tdl-hermes-squad
 ```
 
-Or initialize in Google Drive (Real-time cloud sync across team members):
-```bash
-./scripts/setup.sh acme_corp "~/Google Drive/My Drive/Delta_GBrain"
-```
+### 📁 Google Shared Drive Setup (Recommended for Delta Team Engagements)
+
+1. **Create Shared Drive**: The TDL creates a Google Shared Drive for the client engagement (e.g. `Delta_Project_X_GBrain`).
+2. **Configure Environment Variable**: Copy `.env.example` to `.env` and set `GBRAIN_DRIVE_DIR`:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env`:
+   ```env
+   GBRAIN_DRIVE_DIR="/Volumes/GoogleDrive/Shared drives/Delta_Project_X_GBrain"
+   ```
+3. **Run Setup**:
+   ```bash
+   ./scripts/setup.sh acme_corp
+   ```
 
 ---
 

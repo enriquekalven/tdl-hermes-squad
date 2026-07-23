@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-GBrain Knowledge Search Tool (In-Repo Auto-Sync & Multi-Tenant Edition)
-Scans and queries GBrain entity markdown files for fast context retrieval.
-Auto-pulls latest team changes from Git before querying to prevent stale context.
+GBrain Knowledge Search Tool (Google Shared Drive & Environment Variable Edition)
+Queries GBrain entity markdown files stored in Google Shared Drive or local directories.
 """
 
 import sys
@@ -11,8 +10,25 @@ import glob
 import argparse
 import subprocess
 
+def load_env_file():
+    env_path = ".env"
+    if os.path.exists(env_path):
+        with open(env_path, "r") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    os.environ[k.strip()] = v.strip().strip('"').strip("'")
+
+load_env_file()
+
 def detect_gbrain_base():
-    # Check if inside git repo with .gbrain
+    # 1. Environment Variable GBRAIN_DRIVE_DIR
+    drive_dir = os.environ.get("GBRAIN_DRIVE_DIR")
+    if drive_dir and os.path.exists(drive_dir):
+        return os.path.expanduser(drive_dir)
+
+    # 2. In-Repo .gbrain
     try:
         res = subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True, check=True)
         repo_root = res.stdout.strip()
@@ -21,16 +37,11 @@ def detect_gbrain_base():
             return in_repo_gbrain
     except Exception:
         pass
+
+    # 3. Local Home
     return os.path.expanduser("~/.gbrain")
 
 GBRAIN_BASE = detect_gbrain_base()
-
-def auto_git_pull():
-    """Background auto-sync: pulls latest team GBrain changes before searching."""
-    try:
-        subprocess.run(["git", "pull", "--rebase", "--quiet"], timeout=2, capture_output=True)
-    except Exception:
-        pass
 
 def get_active_tenant():
     active_file = os.path.join(GBRAIN_BASE, "active_tenant")
@@ -40,8 +51,6 @@ def get_active_tenant():
     return "default"
 
 def search_brain(query, tenant_id=None):
-    auto_git_pull()  # Seamless Auto-Sync before query
-
     if not tenant_id:
         tenant_id = get_active_tenant()
 
