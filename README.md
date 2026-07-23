@@ -8,11 +8,25 @@ This project bridges frontier AI model capabilities into enterprise workflows us
 
 ## ⚡ Zero-Install Quick Start (10 Seconds)
 
-Give your AI coding agent (Antigravity, Cursor, Claude Code, or Hermes CLI) the master TDL operational meta-skill in one command:
+### 1. Install the Master Meta-Skills & Memory Engine
+Give your AI coding agent (Antigravity, Cursor, Claude Code, or Hermes CLI) the master TDL operational meta-skill (`tdl-field-guide`) and persistent memory (`gbrain`) in one command:
 
 ```bash
 npx skills add enriquekalven/tdl-hermes-squad
 ```
+
+> **What gets installed**:
+> - 🛠️ **`tdl-field-guide` (Master Meta-Skill)**: Governs the 12-week state machine and resolves dynamic capability slots (`#CAPABILITY: PRD-Creation`, `#CAPABILITY: InfoSec-Threat`, `#CAPABILITY: ADK-Code`).
+> - 🧠 **`gbrain` (Persistent State Skill)**: Enables agents to read/write persistent memory across turns.
+
+---
+
+### 2. Upstream Skill Capabilities & Fallback Engine
+When `tdl-field-guide` runs, it maps capability slots to specialized skills across your environment:
+- **Google ADK Suite**: `google-agents-cli-workflow`, `scaffold`, `adk-code`, `eval`, `deploy`, `publish`, `observability`.
+- **Engineering & Security**: `create-prd`, `grill-with-docs`, `threat-model-analyst`, `test-driven-development`, `intended-vs-implemented`.
+
+*Note: If any specialized tool skill is not installed on your machine, the built-in **Graceful Fallback Engine** (`scripts/resolve_capability.py`) automatically falls back to local native SOP templates so execution never breaks.*
 
 ### 📁 Google Shared Drive Setup (Recommended for Delta Team Engagements)
 
