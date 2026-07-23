@@ -1,0 +1,13 @@
+{
+  "tenant_id": "acme_corp",
+  "source_environment": "Argolis-Sandbox",
+  "target_gcp_project": "customer-gcp-prod-88",
+  "migration_timestamp": "2026-07-23T01:08:36Z",
+  "gbrain_status": "MIGRATED_SUCCESS",
+  "artifacts_included": [
+    "STATE.md",
+    "baseline_kpis.json",
+    "operations/tdl-squad-matrix.md",
+    "operations/environment-matrix.md"
+  ]
+}

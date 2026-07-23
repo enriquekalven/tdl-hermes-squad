@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-🛡️ Hermes TDL Interactive Console (AlphaEvolved Edition)
-Zero-friction interactive terminal environment for Technical Deployment Leads (TDLs).
-Orchestrates Monica (Chief of Staff) and the 8-Role Squad Matrix across Phases 1 to 4.
+🛡️ Hermes TDL & FDE Interactive Console (Dual-Track Edition)
+Zero-friction CLI environment for Technical Deployment Leads (TDLs) & Forward Deployed Engineers (FDEs).
+Supports Enterprise 12-Week Track and FDE Fast-Track (2-4 Weeks) Argolis-to-GCP Production Migration.
 """
 
 import sys
@@ -10,6 +10,22 @@ import os
 import subprocess
 
 GBRAIN_BASE = os.path.expanduser("~/.gbrain")
+
+def detect_gbrain_base():
+    drive_dir = os.environ.get("GBRAIN_DRIVE_DIR")
+    if drive_dir and os.path.exists(drive_dir):
+        return os.path.expanduser(drive_dir)
+    try:
+        res = subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True, check=True)
+        repo_root = res.stdout.strip()
+        in_repo_gbrain = os.path.join(repo_root, ".gbrain")
+        if os.path.exists(in_repo_gbrain):
+            return in_repo_gbrain
+    except Exception:
+        pass
+    return os.path.expanduser("~/.gbrain")
+
+GBRAIN_BASE = detect_gbrain_base()
 
 def get_active_tenant():
     active_file = os.path.join(GBRAIN_BASE, "active_tenant")
@@ -21,19 +37,20 @@ def get_active_tenant():
 def print_banner():
     tenant = get_active_tenant()
     print("==========================================================================")
-    print(" 🛡️  HERMES TDL SQUAD INTERACTIVE OPERATING CONSOLE (AlphaEvolved v2.0)")
+    print(" 🛡️  HERMES TDL & FDE OPERATING CONSOLE (Dual-Track v2.1)")
     print(f" 🏢 Active Tenant Scope: [{tenant}] ({os.path.join(GBRAIN_BASE, 'tenants', tenant)})")
     print(" 🧠 Orchestrator: Monica (Chief of Staff)")
     print("==========================================================================")
 
 def show_menu():
     print("\nSelect an operational action:\n")
-    print("  [1] 📋 View Active 12-Week State Machine (Monica)")
+    print("  [1] 📋 View Active State Machine & Lifecycle Mode")
     print("  [2] 🔍 Search GBrain Memory Substrate (Multi-Tenant)")
-    print("  [3] 📊 Run Multi-Objective EBITDA & Quality Evals (Eva)")
-    print("  [4] 🎯 Resolve Dynamic Capability Slot (Tyler)")
+    print("  [3] 📊 Run Multi-Objective EBITDA & Quality Evals")
+    print("  [4] 🎯 Resolve Dynamic Capability Slot")
     print("  [5] 🏢 Switch / Initialize Tenant Scope (setup.sh)")
     print("  [6] ⚠️ Trigger Automated State Checkpoint Rollback")
+    print("  [7] ✈️ FDE FAST-TRACK: Migrate Argolis Sandbox ➔ GCP Prod Project")
     print("  [0] 🚪 Exit Console\n")
 
 def run_action(choice):
@@ -78,15 +95,21 @@ def run_action(choice):
             cmd = [os.path.join(base_dir, "rollback.sh"), phase]
             subprocess.run(cmd)
 
+    elif choice == "7":
+        target_gcp = input("✈️ Enter Target Customer GCP Project ID (e.g. customer-gcp-prod-88): ").strip()
+        if target_gcp:
+            cmd = [os.path.join(base_dir, "migrate_tenant.sh"), tenant, target_gcp]
+            subprocess.run(cmd)
+
     elif choice == "0":
-        print("👋 Exiting Hermes TDL Console. Happy deploying!")
+        print("👋 Exiting Hermes Console. Happy deploying!")
         sys.exit(0)
 
 def main():
     while True:
         print_banner()
         show_menu()
-        choice = input("Enter choice [0-6]: ").strip()
+        choice = input("Enter choice [0-7]: ").strip()
         run_action(choice)
         input("\nPress Enter to continue...")
         print("\n" * 2)
@@ -94,6 +117,6 @@ def main():
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--non-interactive":
         print_banner()
-        print("✅ Interactive Console initialized and ready for TDL use.")
+        print("✅ Interactive Console initialized and ready for TDL/FDE use.")
     else:
         main()
