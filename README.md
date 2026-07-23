@@ -14,11 +14,9 @@ Give your AI coding agent (Antigravity, Cursor, Claude Code, or Hermes CLI) the 
 npx skills add enriquekalven/tdl-hermes-squad
 ```
 
-Or clone and initialize locally:
+Or initialize in Google Drive (Real-time cloud sync across team members):
 ```bash
-git clone https://github.com/enriquekalven/tdl-hermes-squad.git
-cd tdl-hermes-squad
-./scripts/setup.sh
+./scripts/setup.sh acme_corp "~/Google Drive/My Drive/Delta_GBrain"
 ```
 
 ---

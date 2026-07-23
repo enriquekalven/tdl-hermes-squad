@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 # Quick Installer for Delta TDL Squad (GBrain + Hermes Agent)
-# In-Repo Shared GBrain & Auto-Sync Edition
+# Supports Local, In-Repo Git, and Google Drive Mount Paths
 
 set -e
 
 TENANT_ID=${1:-"default"}
+CUSTOM_PATH=$2
 
-# Detect if we are inside a Git repository
-if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+# Detect Storage Location
+if [ -n "$CUSTOM_PATH" ]; then
+  GBRAIN_BASE="$CUSTOM_PATH"
+  echo "📁 Using Custom / Google Drive Path: $GBRAIN_BASE"
+elif git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   REPO_ROOT=$(git rev-parse --show-toplevel)
   GBRAIN_BASE="$REPO_ROOT/.gbrain"
   echo "📂 Git Repository Detected: Using In-Repo Shared GBrain at $GBRAIN_BASE"
