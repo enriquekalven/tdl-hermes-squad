@@ -6,9 +6,9 @@
 *.key
 *.token
 
-# GBrain local runtime directories & state
-.gbrain/
-active_tenant
+# Shared GBrain Persistent Memory (Tracked in Git for Team Sync)
+!.gbrain/
+!.gbrain/**
 
 # Logs
 *.log

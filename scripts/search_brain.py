@@ -1,15 +1,36 @@
 #!/usr/bin/env python3
 """
-GBrain Knowledge Search Tool (Multi-Tenant & Hierarchical Indexing Edition)
-Scans and queries ~/.gbrain/tenants/<tenant_id>/ entity markdown files for fast context retrieval.
+GBrain Knowledge Search Tool (In-Repo Auto-Sync & Multi-Tenant Edition)
+Scans and queries GBrain entity markdown files for fast context retrieval.
+Auto-pulls latest team changes from Git before querying to prevent stale context.
 """
 
 import sys
 import os
 import glob
 import argparse
+import subprocess
 
-GBRAIN_BASE = os.path.expanduser("~/.gbrain")
+def detect_gbrain_base():
+    # Check if inside git repo with .gbrain
+    try:
+        res = subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True, text=True, check=True)
+        repo_root = res.stdout.strip()
+        in_repo_gbrain = os.path.join(repo_root, ".gbrain")
+        if os.path.exists(in_repo_gbrain):
+            return in_repo_gbrain
+    except Exception:
+        pass
+    return os.path.expanduser("~/.gbrain")
+
+GBRAIN_BASE = detect_gbrain_base()
+
+def auto_git_pull():
+    """Background auto-sync: pulls latest team GBrain changes before searching."""
+    try:
+        subprocess.run(["git", "pull", "--rebase", "--quiet"], timeout=2, capture_output=True)
+    except Exception:
+        pass
 
 def get_active_tenant():
     active_file = os.path.join(GBRAIN_BASE, "active_tenant")
@@ -19,12 +40,13 @@ def get_active_tenant():
     return "default"
 
 def search_brain(query, tenant_id=None):
+    auto_git_pull()  # Seamless Auto-Sync before query
+
     if not tenant_id:
         tenant_id = get_active_tenant()
 
     tenant_dir = os.path.join(GBRAIN_BASE, "tenants", tenant_id)
     if not os.path.exists(tenant_dir):
-        # Fallback to legacy root ~/.gbrain if tenant dir doesn't exist
         tenant_dir = GBRAIN_BASE
 
     query = query.lower()
@@ -58,7 +80,7 @@ def search_brain(query, tenant_id=None):
         print()
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="GBrain Multi-Tenant Knowledge Search Tool")
+    parser = argparse.ArgumentParser(description="GBrain Knowledge Search Tool")
     parser.add_argument("query", type=str, help="Search query string")
     parser.add_argument("--tenant", type=str, help="Tenant ID namespace (default: active tenant)")
     args = parser.parse_args()
